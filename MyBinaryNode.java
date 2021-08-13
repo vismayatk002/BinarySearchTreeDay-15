@@ -33,7 +33,7 @@ public class MyBinaryNode<T extends Comparable<T>>{
     public int getSize(){
         return getSizeReccursive(this.root);
     }
-    public int getSizeReccursive(Node<T> currentRoot){
+    private int getSizeReccursive(Node<T> currentRoot){
         int count = 0;
         if(currentRoot == null){
             return 0;
@@ -42,6 +42,23 @@ public class MyBinaryNode<T extends Comparable<T>>{
             count = 1 + getSizeReccursive(currentRoot.left) + getSizeReccursive(currentRoot.right);
         }
         return count;
+    }
+    public boolean search(T key){
+        return searchReccursive(this.root,key);
+    }
+    private boolean searchReccursive(Node<T> currentRoot,T newKey){
+        if(currentRoot == null){
+            return false;
+        }
+        else{
+            if(newKey.compareTo(currentRoot.key) < 0){
+                return searchReccursive(currentRoot.left,newKey); 
+            }else if(newKey.compareTo(currentRoot.key) > 0){
+                return searchReccursive(currentRoot.right,newKey); 
+            }else{
+                return true;
+            }
+        }
     }
     private class Node<T extends Comparable<T>>{
 

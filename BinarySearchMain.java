@@ -19,5 +19,11 @@ public class BinarySearchMain{
         // This node will be excluded since the size exceeded
         binary.add(98);
         System.out.println("\n Size : "+binary.getSize());
+        int searchKey = 63;
+        if(binary.search(searchKey)){
+            System.out.println(searchKey +" present in BST");
+        }else{
+            System.out.println(searchKey +" not present in BST");
+        }
     }
 }
